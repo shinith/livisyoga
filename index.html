@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Livis Yoga</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<!--  -->
+	<div class="simpleslide100">
+		<div class="simpleslide100-item bg-img1" style="background-image: url('images/bg01.jpg');"></div>
+		<div class="simpleslide100-item bg-img1" style="background-image: url('images/bg02.jpg');"></div>
+		<div class="simpleslide100-item bg-img1" style="background-image: url('images/bg03.jpg');"></div>
+	</div>
+
+	<div class="size1 overlay1">
+		<!--  -->
+		<div class="size1 flex-col-c-m p-l-15 p-r-15 p-t-50 p-b-50">
+			<img src="images/logo.png">
+			<h3 class="l1-txt1 txt-center p-b-25">
+				Coming Soon
+			</h3>
+
+			<p class="m2-txt1 txt-center p-b-48">
+				Our website is under construction, follow us for update now!
+			</p>
+
+			
+
+			<form class="w-full flex-w flex-c-m validate-form">
+
+				<div class="wrap-input100 validate-input where1" >
+					<input class="input100 placeholder0 s2-txt2" type="text" name="txtMsg" id="txtMsg" placeholder="Enter your message">
+				</div>
+				
+				
+				<a id="btnWat" class="flex-c-m how-btn1 trans-04 where1" href="#" target="_blank">
+					<img src="images/whatsapp.svg">
+				</a>
+			</form>
+		</div>
+	</div>
+
+
+
+	
+
+<!--===============================================================================================-->	
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/moment.min.js"></script>
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+	<script>
+		$('.simpleslide100').each(function(){
+        var delay = 7000;
+        var speed = 1000;
+        var itemSlide = $(this).find('.simpleslide100-item');
+        var nowSlide = 0;
+
+        $(itemSlide).hide();
+        $(itemSlide[nowSlide]).show();
+        nowSlide++;
+        if(nowSlide >= itemSlide.length) {nowSlide = 0;}
+
+        setInterval(function(){
+            $(itemSlide).fadeOut(speed);
+            $(itemSlide[nowSlide]).fadeIn(speed);
+            nowSlide++;
+            if(nowSlide >= itemSlide.length) {nowSlide = 0;}
+        },delay);
+    });
+		$(document).on("click","#btnWat",function(){
+			mytxt=encodeURI("Hello "+$("#txtMsg").val());
+			if(!mytxt){
+				return false;
+			}else{
+			  	$(this).attr("href","https://wa.me/919947020830/?text="+mytxt);
+			}
+		});
+	</script>
+
+</body>
+</html>
